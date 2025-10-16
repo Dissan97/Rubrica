@@ -47,6 +47,10 @@ public interface LoginDao {
                         return new FileInputStream(confFile);
                 }
 
+                confFile = new File(baseDir,"credenziali_database.properties");
+                if (confFile.exists()) {
+                        return new FileInputStream(confFile);
+                }
                 InputStream is = ContattiDao.class.getClassLoader().getResourceAsStream("conf.properties");
                 if (is == null) {
                         throw new FileNotFoundException(
